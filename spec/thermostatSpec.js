@@ -5,7 +5,7 @@ describe('Thermostat', function() {
 
 		beforeEach(function() {
 			thermostat = new Thermostat();
-					});
+		});
 
 	describe('by default', function() {
 
@@ -21,6 +21,15 @@ describe('Thermostat', function() {
 			expect(thermostat.isPowerSaverOn).toBe(true);
 		});
 
+		it('power saver mode will have a maximum temperature of 25 degrees', function() {
+			expect(thermostat.maxTemp()).toEqual(25)
+		});
+
+		it('power save off has a maximum temperature of 32 degrees', function() {
+			thermostat.togglePowerSaver();
+			expect(thermostat.maxTemp()).toEqual(32);
+		});
+
 		it('can incraease the temperature by one degree', function() {
 			thermostat.increaseTemperature();
 			expect(thermostat.temperature).toEqual(21);
@@ -30,6 +39,7 @@ describe('Thermostat', function() {
 			thermostat.decreaseTemperature();
 			expect(thermostat.temperature).toEqual(19);
 		});
+
 
 	});
 
@@ -43,6 +53,17 @@ describe('Thermostat', function() {
 		it('can decrease the temperature by 5', function() {
 			thermostat.decreaseTemperatureBy(5)
 			expect(thermostat.temperature).toEqual(15);
+		});
+
+		it('power saver can be switched off', function() {
+			thermostat.togglePowerSaver();
+			expect(thermostat.isPowerSaverOn).toEqual(false);
+		});
+
+		it('power saver can be switched off', function() {
+			thermostat.togglePowerSaver();
+			thermostat.togglePowerSaver();
+			expect(thermostat.isPowerSaverOn).toEqual(true);
 		});
 
 	});
