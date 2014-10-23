@@ -1,3 +1,7 @@
+$.getJSON('/weather', function(data) {
+    $('h3').text('outside temperature: ' + (parseInt(data['list'][1]['main']['temp'])) + '°C')
+});
+
 function ThermocatView(element) {
   this.element = $(element);
   this.thermocat = new Thermocat;

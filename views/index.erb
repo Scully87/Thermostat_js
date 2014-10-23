@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="thermostat.css">
+    <meta charset="utf-8">
+    <title>Thermocat</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=weather"></script>
+  </head>
+  <body>
+  <header>
+   <section id="map-canvas"></section>
+  </header>
+  <section class="temperature">
+    <section class="thermometer"></section>
+    <section class="degrees">&deg;C</section>
+    <h3>.</h3>
+     <!--  <aside> -->
+      <!--   <nav> -->
+          <!-- <ul style="list-style:none"> -->
+            <li style="list-style:none"><a href="#" class="increase_temperature"><img src="images/plus.png" class="plus_button"></a></li>
+            <li style="list-style:none"><a href="#" class="decrease_temperature"><img src="images/minus.png" class="minus_button"></a></li>
+            <li style="list-style:none"><a href="#" class="reset"><img src="images/reset.jpg" class="reset_button"></a></li>
+        <!--   </ul> -->
+ <!--        </nav> -->
+       <!--  </aside> -->
+    </section>
+  <section id="map-canvas"></section>
+  <script src="jquery-2.1.1.min.js"></script>
+  <script src="thermocat.js"></script>
+  <script src="interface.js"></script>
+  <script src="map.js"></script>
+  <script>
+    $(document).ready(function() {
+      new ThermocatView('.temperature h1');
+    });
+  </script>
+  </body>
+</html>
