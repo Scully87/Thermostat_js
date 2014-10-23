@@ -1,5 +1,11 @@
+$(document).ready(function() {
+  new ThermocatView('.thermometer');
+});
+
+var thermocat = new Thermocat;
+
 $.getJSON('/weather', function(data) {
-    $('h3').text('outside temperature: ' + (parseInt(data['list'][1]['main']['temp'])) + '°C')
+    $('h3').text('London outside temp ' + (parseInt(data['list'][1]['main']['temp'])) + '°C')
 });
 
 function ThermocatView(element) {
@@ -16,21 +22,3 @@ ThermocatView.prototype.bindTo = function(selector, obj, func) {
     $('.thermometer').text(func.call(obj) );
   });
 };
-
-$(document).ready(function() {
-  new ThermocatView('.thermometer');
-  // $('.temperature h1').text(thermocat.temperature);
-
-  // $('.increase_temperature').on('click', function() {
-  //   $('.temperature h1').text(thermocat.increaseTemperature());
-  // });
-
-  // $('.decrease_temperature').on('click', function() {
-  //   $('.temperature h1').text(thermocat.decreaseTemperature());
-  // });
-
-  // $('.reset').on('click', function() {
-  //   thermocat.resetTemperature()
-  //   $('.temperature h1').text(thermocat.temperature);
-  // });
-});
