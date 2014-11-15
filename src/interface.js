@@ -22,3 +22,17 @@ ThermocatView.prototype.bindTo = function(selector, obj, func) {
     $('.thermometer').text(func.call(obj) );
   });
 };
+
+function changeColor()
+
+{
+    if (this.thermocat.temperature < 18)
+    {
+        document.getElementsByName(".html").style.color="#008000";
+    }
+    else if (this.thermocat.temperature < 25)
+    {
+        document.getElementsByName(".html").style.color="#FFFF00";
+    }
+
+}
